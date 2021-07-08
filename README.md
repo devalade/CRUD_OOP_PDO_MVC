@@ -1,2 +1,1 @@
-#
-Implementation of a CRUD following the MVC architecture
+# Implementation of a CRUD following the MVC architecture
