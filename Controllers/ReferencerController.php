@@ -1,6 +1,6 @@
 <?php
 
-require_once "config/db.php";
+require_once "../config/db.php";
 
 class ReferencerController extends Db {
 
@@ -23,7 +23,7 @@ class ReferencerController extends Db {
 						]);
   }
 
-  public function updateReferencer($nom_site,$ISBN,$numeroPage,$si, $ouv, $np) {
+  public function updateReferencer($nom_site,$ISBN, int $numeroPage,$si, $ouv, int $np) {
     $sql = "UPDATE `reference` set  nomSite = :nomSite, ISBN = :ISBN, numeroPage = :numeroPage WHERE nomSite = :si and ISBN = :ouv and numeroPage = :np "; 
     $stmt = $this->connect()->prepare($sql);
     $stmt->execute([":nomSite" => $nom_site,

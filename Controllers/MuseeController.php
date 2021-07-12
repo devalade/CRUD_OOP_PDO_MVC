@@ -1,6 +1,6 @@
 <?php
     
-require_once "config/db.php";
+require_once "../config/db.php";
 
 class MuseeController extends Db {
 
@@ -23,19 +23,19 @@ class MuseeController extends Db {
 						]);
   }
 
-  public function updateMusee($id, $nom_mus,$nblivres,$code_pays) {
+  public function updateMusee($num_mus, $nom_mus,$nblivres,$code_pays) {
     $sql = "UPDATE `musee` set  nomMus = :nomMus, codePays = :codePays, nblivres = :nblivres WHERE numMus = :id";
     $stmt = $this->connect()->prepare($sql);
     $stmt->execute([":nomMus" => $nom_mus,
 			":codePays" =>$code_pays,
 			":nblivres"=> $nblivres,
-			":id" => $id
+			":id" => $num_mus 
         ]);
   }
 
-  public function delMusee($nom_mus) {
+  public function delMusee($num_mus) {
     $sql = "DELETE FROM `musee` WHERE numMus = :numMus";
     $stmt = $this->connect()->prepare($sql);
-    $stmt->execute([":numMus" => $nom_mus]);
+    $stmt->execute([":numMus" => $num_mus]);
   }
 }

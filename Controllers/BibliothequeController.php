@@ -1,6 +1,6 @@
 <?php
 
-require_once "config/db.php";
+require_once "../config/db.php";
 
 class BibliothequeController extends Db {
 
@@ -20,7 +20,7 @@ class BibliothequeController extends Db {
     $stmt->execute([":numMus" => $num_mus, ":ISBN" => $ISBN, ":dateAchat" => $date_achat]);
   }
 
-  public function updateBibliotheque($num_mus, $ISBN, $date_achat, $musee, $ouvrage) {
+  public function updateBibliotheque($musee, $ouvrage, $num_mus, $ISBN, $date_achat ) {
     $sql = "UPDATE `bibliotheque` set  numMus = :numMus, ISBN = :ISBN, dateAchat = :dateAchat WHERE numMus = :mus and ISBN = :ouv";
     $stmt = $this->connect()->prepare($sql);
     $stmt->execute([":numMus" => $num_mus,

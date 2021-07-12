@@ -1,6 +1,10 @@
 <?php
 
-require_once "config/db.php";
+// namespace App;
+
+require_once "../config/db.php";
+
+// use Database;
 
 class PaysController extends Db {
 
